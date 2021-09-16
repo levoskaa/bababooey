@@ -9,7 +9,7 @@ that it was coming from elsewhere.
 
 ## Usage
 If you want to prank someone as well, I recommend using one of the executables from the [releases](https://github.com/levoskaa/bababooey/releases). You can also
-make the application start with Windows by copying the .exe file into the *C:\Users\\\<USERNAME>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup*
+make the application start with Windows by copying the .exe file into the *C:\Users\\<USERNAME\>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup*
 folder. You should also rename the .exe file before starting it, so even if they start looking for it in the task manager the name won't stick out. I personally used
 *Sink for asynchronous services.exe*.
 
